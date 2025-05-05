@@ -7,11 +7,35 @@ public class NarrativeFramework : ModuleRules
 	public NarrativeFramework(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		
+		PublicIncludePaths.AddRange(
+			new string[]
+			{
+				//Path.Combine(ModuleDirectory, "Content"),
+				"NarrativeFramework", //Public header
+			}
+		);
+		PublicDependencyModuleNames.AddRange(new string[]
+		{
+			"Core", 
+			"CoreUObject", 
+			"Engine", 
+			"InputCore", 
+			"EnhancedInput", 
+			"AIModule",
+			"Niagara",
+			"PhysicsCore",
+			"GameplayTags",
+			"GameplayCameras",
+		});
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
-
+		PrivateDependencyModuleNames.AddRange(new string[] {
+			"Slate",
+			"SlateCore",
+			"UMG",
+			"RHI",
+			"RenderCore"
+		});
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 		
